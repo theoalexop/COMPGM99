@@ -1,4 +1,19 @@
 # -*- coding: utf-8 -*-
+
+"""
+Addition of a main identity map connection from end-to-end in the implementation of HighRes3DNet [1] as 
+originally found in NiftyNet [2]. Furthermore, batch normalization layers are removed, while bias is enabled 
+to all convolutional layers.
+  [1] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
+      Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
+      Conference, pages 348-360, June 2017.
+  [2] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
+
+Patches of 32x32x32 from blurred images due to the application of PSF are downscaled to 16x16x16 within HighRes3DNet 
+and are subsequently upscaled via the application of transposed convolution with stride = 2.
+It is to be noted that for this experiment, no noise is added to the downscaled input.
+"""
+
 from __future__ import absolute_import, print_function
 
 from six.moves import range
@@ -16,19 +31,6 @@ from niftynet.layer.cubic_resize import CubicResizeLayer
 from niftynet.layer.deconvolution import DeconvolutionalLayer
 
 class HighRes3DNet(BaseNet):
-    """
-    Addition of a main identity map connection from end-to-end in the implementation of HighRes3DNet [1] as 
-    originally found in NiftyNet [2]. Furthermore, batch normalization layers are removed, while bias is enabled 
-    to all convolutional layers.
-      [1] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
-          Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
-          Conference, pages 348-360, June 2017.
-      [2] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
-    
-    Patches of 32x32x32 from blurred images due to the application of PSF are downscaled to 16x16x16 within HighRes3DNet 
-    and are subsequently upscaled via the application of transposed convolution with stride = 2.
-    It is to be noted that for this experiment, no noise is added to the downscaled input.
-    """
 
     def __init__(self,
                  num_classes,
