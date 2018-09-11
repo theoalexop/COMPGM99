@@ -128,9 +128,7 @@ class FSRCNN3D(BaseNet):
         if is_training:
             self._print(layer_instances)
             return layer_instances[-1][1]
-            # return output_tensor_res
         return layer_instances[layer_id][1]
-        # return output_tensor_res
 
     def _print(self, list_of_layers):
         for (op, _) in list_of_layers:
