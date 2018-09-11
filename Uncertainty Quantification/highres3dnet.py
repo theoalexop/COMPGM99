@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+
+"""
+Modification:
+Addition of an identity mapping connection from end-to-end in the implementation of 
+HighRes3DNet variant called highres3dnet_large, which is originally found in [1].
+[1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet_large.py
+"""
+
 from __future__ import absolute_import, print_function
 
 from six.moves import range
@@ -11,13 +19,6 @@ from niftynet.network.highres3dnet import HighResBlock
 from niftynet.layer.elementwise import ElementwiseLayer
 
 class HighRes3DNetLarge(BaseNet):
-    """
-    Based on the implementation of HighRes3DNet variant called highres3dnet_large, 
-    originally found in [1], but with the addition of an identity mapping connection 
-    from end-to-end.
-    [1] 
-
-    """
 
     def __init__(self,
                  num_classes,

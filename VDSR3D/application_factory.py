@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
-# Addition of selection choices for FSRCNN3D and VDSR3D (see lines 78-80) in application_factory.py, 
-# as originally found in [1].
-# [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/engine/application_factory.py
+"""
+Addition of selection choices for FSRCNN3D and VDSR3D (see lines 81-82) in application_factory.py, 
+as originally found in [1].
+[1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/engine/application_factory.py
+"""
 
 """
 Loading modules from a string representing the class name
