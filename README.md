@@ -1,6 +1,6 @@
 # COMPGM99
 
-The .py files pertain to original files from NiftyNet [1] with the incorporation of modifications which are outlined within each respective file.
+For the .py files which pertain to original files from NiftyNet [1], the incorporated modifications are outlined at the beginning of each respective file.
 
 References:
 
