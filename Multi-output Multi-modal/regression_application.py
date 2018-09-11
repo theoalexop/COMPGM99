@@ -1,13 +1,16 @@
+"""
+Modification:
+In the case of multi-output multi-modal super-resolution, the following changes are made 
+in the regression_application.py, which is originally found in [1]: 
+1) The number of classes in "self.net = ApplicationNetFactory.create(self.net_param.name)(...)" 
+becomes 3 so that T1, T2, and PD modalities are predicted in the output (see line 229);
+2) The network output is unstack so that to allow for computation of loss function as the 
+summation of loss functions per modality (see lines 269-277 and 282-297).
+[1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/application/regression_application.py
+"""
+
 import tensorflow as tf
 import os
-
-# In the case of multi-output multi-modal super-resolution, the following changes are made 
-# in the regression_application.py, as originally found in [1]: 
-# 1) The number of classes in "self.net = ApplicationNetFactory.create(self.net_param.name)(...)" 
-# becomes 3 so that T1, T2, and PD modalities are predicted in the output (see lines 225-229);
-# 2) The network output is unstack so that to allow for computation of loss function as the 
-# summation of loss functions per modality (see lines 279-294).
-# [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/application/regression_application.py
 
 from niftynet.application.base_application import BaseApplication
 from niftynet.engine.application_factory import ApplicationNetFactory
