@@ -11,10 +11,9 @@ from niftynet.layer.deconvolution import DeconvolutionalLayer
 
 class FSRCNN3D(BaseNet):
     """
-    implementation of FSRCNN [1] with 3D Kernel Spatial Support:
-
-        [1] Dong et al., "C. Dong et al. Accelerating the Super-Resolution Convolutional Neural Network". 
-        In Proceedings of European Conference on Computer Vision (ECCV), 2016. 
+    Implementation of FSRCNN [1] with 3D Kernel Spatial Support.
+    [1] Dong et al., "C. Dong et al. Accelerating the Super-Resolution Convolutional Neural Network". 
+    In Proceedings of European Conference on Computer Vision (ECCV), 2016. 
     """
 
     def __init__(self,

@@ -1,10 +1,10 @@
 """
-# Resize based on Cubic Interpolation 
-# NiftyNet "linear_resize.py", as originally found in [1], carries out resizing of 
-# 2D or 3D inputs based on linear interpolation. By simply replacing tf.image.resize_bilinear 
-# function with tf.image.resize_bicubic is feasible to resize the respective input with 
-# cubic interpolation.
-# [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/layer/linear_resize.py
+Resize based on Cubic Interpolation:
+NiftyNet "linear_resize.py", as originally found in [1], carries out resizing of 
+2D or 3D inputs based on linear interpolation. By simply replacing tf.image.resize_bilinear 
+function with tf.image.resize_bicubic is feasible to resize the respective input with 
+cubic interpolation.
+[1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/layer/linear_resize.py
 """
 
 # -*- coding: utf-8 -*-
