@@ -1,4 +1,16 @@
 # -*- coding: utf-8 -*-
+
+"""
+Modification:
+Addition of a main identity map connection from end-to-end in the implementation of HighRes3DNet [1], which 
+is originally found in NiftyNet [2]. Furthermore, batch normalization layers are removed, while bias is enabled 
+to all convolutional layers.
+  [1] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
+      Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
+      Conference, pages 348-360, June 2017.
+  [2] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
+"""
+
 from __future__ import absolute_import, print_function
 
 from six.moves import range
@@ -13,15 +25,6 @@ from niftynet.layer.elementwise import ElementwiseLayer
 from niftynet.network.base_net import BaseNet
 
 class HighRes3DNet(BaseNet):
-    """
-    Addition of a main identity map connection from end-to-end in the implementation of HighRes3DNet [1] as 
-    originally found in NiftyNet [2]. Furthermore, batch normalization layers are removed, while bias is enabled 
-    to all convolutional layers.
-      [1] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
-          Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
-          Conference, pages 348-360, June 2017.
-      [2] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
-    """
 
     def __init__(self,
                  num_classes,
