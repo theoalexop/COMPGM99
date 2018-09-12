@@ -1,27 +1,24 @@
 # -*- coding: utf-8 -*-
-
-"""
-Modification:
-Addition of a main identity map connection from end-to-end in the implementation of HighRes3DNet [1] as 
-originally found in NiftyNet [2]. Furthermore, batch normalization layers are removed, while bias is enabled 
-to all convolutional layers. 
-
-In addition, for the single-output multi-modal case, the input is split channel-wise so that only input pertaining 
-to T1 modality is propagated through the main identity mapping to the network output where it is added elementwise 
-with the output of the residual path.
-
-  [1] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
-      Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
-      Conference, pages 348-360, June 2017.
-  [2] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
-  
-In the single-output multi-modal case, only the input channel associated with T1 modality is added to the 
-network output.
-"""
-
 from __future__ import absolute_import, print_function
 
 from six.moves import range
+
+"""
+The original version of highres3dnet.py is found in [1]. It is associated with the network outlined in [2].
+The modifications applied to the aforemenetioned file and network pertain to: 1) the addition of a main identity 
+map connection from end-to-end and 2) batch normalization layers are removed, while bias is enabled to all 
+convolutional layers.
+[1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
+[2] W. Li et al., "On the Compactness, Efficiency, and Representation of 3D Convolutional Networks: 
+    Brain Parcellation as a Pretext Task. In Information Processing in Medical Imaging: 25th International 
+    Conference, pages 348-360, June 2017. 
+
+In addition, for the single-output multi-modal case, the input is split channel-wise, so that only input pertaining 
+to T1 modality is propagated through the main identity mapping to be added elementwise with the output of the residual 
+path.
+"""
+
+import tensorflow as tf
 
 from niftynet.layer import layer_util
 from niftynet.layer.activation import ActiLayer
