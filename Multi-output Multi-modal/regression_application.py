@@ -1,6 +1,6 @@
 """
 The original regression_application.py is found in [1].
-The modifications applied to the aforementioned file pertain to:
+The modification applied to the aforementioned file pertain to:
 1) The number of classes in "self.net = ApplicationNetFactory.create(self.net_param.name)(...)" 
 becomes 3, so that T1, T2, and PD modalities are predicted in the output (see line 228);
 2) The network output is unstack, in order to allow for computation of loss function as the 
