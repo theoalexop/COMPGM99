@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, print_function
+
 """
 Resize based on Cubic Interpolation:
 NiftyNet "linear_resize.py", as originally found in [1], carries out resizing of 
@@ -6,9 +9,6 @@ function with tf.image.resize_bicubic is feasible to resize the respective input
 cubic interpolation.
 [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/layer/linear_resize.py
 """
-
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function
 
 import tensorflow as tf
 
