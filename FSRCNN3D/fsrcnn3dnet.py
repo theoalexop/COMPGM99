@@ -11,9 +11,12 @@ from niftynet.layer.deconvolution import DeconvolutionalLayer
 
 class FSRCNN3D(BaseNet):
     """
-    Implementation of FSRCNN [1] with 3D Kernel Spatial Support.
+    Implementation of FSRCNN [1] with 3D Kernel Spatial Support, based on NiftyNet [2]. 
+    This implementation utilizes highres3dnet.py [3] as template. 
     [1] Dong et al., "C. Dong et al. Accelerating the Super-Resolution Convolutional Neural Network". 
     In Proceedings of European Conference on Computer Vision (ECCV), 2016. 
+    [2] https://github.com/NifTK/NiftyNet
+    [3] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
     """
 
     def __init__(self,
@@ -54,7 +57,6 @@ class FSRCNN3D(BaseNet):
 
         images2 = CubicResizeLayer((16,16,16))(images)
 
-        ### first convolution layer
         params = self.layers[0]
         first_conv_layer = ConvolutionalLayer(
             n_output_chns=params['n_features'],
@@ -123,7 +125,6 @@ class FSRCNN3D(BaseNet):
         flow = deconv_layer(flow, is_training)
         layer_instances.append((deconv_layer, flow))
 
-        # set training properties
         if is_training:
             self._print(layer_instances)
             return layer_instances[-1][1]
