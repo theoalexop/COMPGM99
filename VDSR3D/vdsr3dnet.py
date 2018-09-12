@@ -10,11 +10,13 @@ from niftynet.layer.elementwise import ElementwiseLayer
 
 class VDSR3D(BaseNet):
     """
-    Implementation of VDSR [1] with 3D Kernel Spatial Support.
-
-    J. Kim et al., "Accurate Image Super-Resolution Using Very Deep Convolutional Networks". 
+    Implementation of VDSR [1] with 3D Kernel Spatial Support, based on NiftyNet [2]. 
+    This implementation utilizes highres3dnet.py [3] as template. 
+    [1] J. Kim et al., "Accurate Image Super-Resolution Using Very Deep Convolutional Networks". 
     In 2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), pages 1646-1654, 
     June 2016.
+    [2] https://github.com/NifTK/NiftyNet
+    [3] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/network/highres3dnet.py
     """
 
     def __init__(self,

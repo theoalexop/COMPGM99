@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
 """
-Addition of selection choices for FSRCNN3D and VDSR3D (see lines 81-82) in application_factory.py, 
-as originally found in [1].
+The original version of application_factory.py is found in [1].  
+The modification applied to the aforementioned file pertains to the addition of 
+selection choices for FSRCNN3D and VDSR3D (see lines 80-82).
 [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/engine/application_factory.py
 """
 
@@ -11,10 +15,6 @@ Loading modules from a string representing the class name
 or a short name that matches the dictionary item defined
 in this module
 """
-
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
 
 import importlib
 import os

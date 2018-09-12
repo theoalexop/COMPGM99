@@ -1,7 +1,8 @@
 """
-Incorporation of gradient clipping for the purpose of VDSR (see lines 279-285) in regression_application.py, 
-which is originally found in [1]. Learning decay schedule is supported via setting the learning rate in the 
-respective .sh file.
+The original regression_application.py is found in [1].
+The modification applied to the aforementioned file pertains to the incorporation of gradient clipping for 
+the purpose of VDSR (see lines 280-286). Learning rate decay schedule is supported via setting the learning 
+rate externally in the respective .sh file.
 [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/application/regression_application.py
 """
 
