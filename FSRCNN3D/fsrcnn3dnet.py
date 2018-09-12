@@ -51,8 +51,7 @@ class FSRCNN3D(BaseNet):
                  **unused_kwargs):
         assert (layer_util.check_spatial_dims(
             images, lambda x: x % 8 == 0))
-        # go through self.layers, create an instance of each layer
-        # and plugin data
+
         layer_instances = []
 
         images2 = CubicResizeLayer((16,16,16))(images)
