@@ -1,9 +1,11 @@
 """
-Modification:
-Addition of PSF layer to regression_application.py, which is originally found in [1],
-for on-the-fly degradations directly applied to input ground truth images 
-(see lines 40, 118-120, and 146).
-
+The original regression_application.py is found in [1].
+The modification applied to the aforementioned file pertains to the addition of a PSF layer 
+(see lines 42, 120-122, and 148) after the data augmentation layers of NiftyNet. The latter 
+apply geometric transformations to the input and respective target images. The PSF layers 
+degrade on-the-fly the geometrically transformed input ground truth images. It is to be noted 
+that, in the framework of on-the-fly degradations, both input and target images correspond to 
+ground truth images.
 [1] https://github.com/NifTK/NiftyNet/blob/dev/niftynet/application/regression_application.py
 """
 
